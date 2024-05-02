@@ -1,0 +1,46 @@
+//Spriral Matrix II 
+
+
+
+class Solution {
+public:
+    vector<vector<int>> generateMatrix(int n) {
+       vector<vector<int>> ans(n, vector<int>(n)); // Initialize 2D vector 
+
+        int value=1;
+
+        int top=0,right=n-1,bottom=n-1,left=0;
+        while(value<= n*n){
+            for(int j=left ; j<=right;j++){
+                // value=value+1;
+                ans[top][j]=value++;
+            }
+            top++;
+
+            for(int i=top;i<=bottom;i++){
+                // value=value+1;
+                ans[i][right]=value++;
+            }
+            right--;
+            
+
+            for(int j=right;j>= left ; j--){
+                // value=value+1;
+                ans[bottom][j]=value++;
+            }
+            bottom--;
+            
+
+ 
+    
+            for(int i=bottom;i>=top;i--){
+                // value=value+1;
+                ans[i][left]=value++;
+            }
+            left++;
+ 
+        }
+        return ans;
+        
+    }
+};
